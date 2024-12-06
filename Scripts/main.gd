@@ -4,33 +4,49 @@ const SPEED = 5000
 
 @onready var organe := get_tree().get_current_scene().get_node("Organe") as TileMapLayer
 
+var check = false
 var checkpoint = 0
 var checkpoint_names = ["poumons", "coeur", "cerveau","end"]
 
 func _physics_process(delta: float) -> void:
-	if check_path(delta):
-		print("win")
-	else:
-		print("try again")
-
-func check_path(delta) -> bool:
+	
+	if (Input.is_action_just_pressed("ui_down")):
+		check = true
+	
+	if check:
+		var res = check_path(delta)
+		match res:
+			"true":
+				check = false
+				print("winner")
+			"false":
+				check = false
+				print("looser")
+			_:
+				print("computing") 
+			
+func check_path(delta) -> String:
 	
 	var is_connected = check_connection()
+	
 	
 	var dir = to_local($NavigationAgent2D.get_next_path_position()).normalized()
 	velocity = dir * SPEED * delta
 	move_and_slide()
 	
-	var name = get_tile(organe)
+	var organ_name = get_tile(organe)
 	#print("name: ", name, "checkpoint: ", checkpoint_names[checkpoint])
 	
-	if name == checkpoint_names[checkpoint]:
+	if organ_name == checkpoint_names[checkpoint]:
 		checkpoint += 1
 	
+	
+	if not $NavigationAgent2D.is_navigation_finished():
+		return "computing"
 	if is_connected and checkpoint == 3:
-		return true
+		return "true"
 	else:
-		return false
+		return "false"
 		
 func check_connection() -> bool:
 	
