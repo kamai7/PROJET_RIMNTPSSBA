@@ -12,12 +12,13 @@ var red = false
 
 func _input(event: InputEvent) -> void:
 	
+	var pos = to_local(get_global_mouse_position())
+	var mouse_in_tile = local_to_map(pos)
+	
 	if Input.is_action_just_pressed("ui_left"):
 		red = not red
 		
 	if Input.is_action_pressed("place"):
-		var pos = to_local(get_global_mouse_position())
-		var mouse_in_tile = local_to_map(pos)
 		
 		var mod = Vector2i.ZERO
 		if red:
@@ -76,9 +77,7 @@ func _input(event: InputEvent) -> void:
 				cpt = 0
 			set_cell(mouse_in_tile,0,pipes[cpt])
 	
-	if Input.is_action_pressed("delete"):
-		var pos = to_local(get_global_mouse_position())
-		var mouse_in_tile = local_to_map(pos)
+	if Input.is_action_pressed("delete") and not is_blocked(mouse_in_tile):
 		erase_cell(mouse_in_tile)
 		
 func is_blocked(pos: Vector2i) -> bool:
