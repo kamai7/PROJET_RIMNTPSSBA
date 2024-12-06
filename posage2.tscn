@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0usd7ba0uk02"]
 
-[ext_resource type="PackedScene" uid="uid://bk6b7bsplqfsb" path="res://posage.tscn" id="1_3eeg4"]
+[ext_resource type="PackedScene" uid="uid://bk6b7bsplqfsb" path="res://Scenes/posage.tscn" id="1_3eeg4"]
 
 [node name="Node" type="Node"]
 

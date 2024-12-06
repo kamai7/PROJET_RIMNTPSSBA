@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Projet_Retroviseur_Illusoir_Motopropulse_NDLI_top_secret_sigma_beta_alpha"
-run/main_scene="res://posage.tscn"
+run/main_scene="res://Scenes/posage.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Assets/icon.svg"
 
