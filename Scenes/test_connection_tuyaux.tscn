@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp75pstrg1bi8"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_pfiva"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nf6l7"]
+radius = 3.16228
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_pfiva")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nf6l7")

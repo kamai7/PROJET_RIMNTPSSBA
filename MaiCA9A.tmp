@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://d316wtimotvrq"]
+[gd_scene load_steps=21 format=3 uid="uid://d316wtimotvrq"]
 
 [ext_resource type="Texture2D" uid="uid://dtyc5wpteagms" path="res://Assets/tileset.png" id="1_j5jdx"]
 [ext_resource type="Script" path="res://main.gd" id="1_obxt8"]
 [ext_resource type="Script" path="res://Scripts/posage.gd" id="2_gmbo5"]
 [ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="3_ggvoi"]
 [ext_resource type="PackedScene" path="res://Scenes/test_connection_tuyaux.tscn" id="4_nw4rb"]
-[ext_resource type="FontFile" uid="uid://b473honksrskw" path="res://DancingScript-VariableFont_wght.ttf" id="6_aorw0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6licp"]
 vertices = PackedVector2Array(13, 16, -13, 16, -13, -16, 12.75, -16)
@@ -226,9 +225,3 @@ grow_horizontal = 2
 theme = SubResource("Theme_i1bq0")
 theme_override_colors/font_color = Color(1, 0.611765, 0, 1)
 text = "Level: 0"
-
-[node name="Label2" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("6_aorw0")
-text = "FAIL..."

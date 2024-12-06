@@ -1,11 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://d316wtimotvrq"]
+[gd_scene load_steps=20 format=3 uid="uid://b8l7spepnx0nv"]
 
-[ext_resource type="Texture2D" uid="uid://dtyc5wpteagms" path="res://Assets/tileset.png" id="1_j5jdx"]
-[ext_resource type="Script" path="res://main.gd" id="1_obxt8"]
-[ext_resource type="Script" path="res://Scripts/posage.gd" id="2_gmbo5"]
-[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="3_ggvoi"]
-[ext_resource type="PackedScene" path="res://Scenes/test_connection_tuyaux.tscn" id="4_nw4rb"]
-[ext_resource type="FontFile" uid="uid://b473honksrskw" path="res://DancingScript-VariableFont_wght.ttf" id="6_aorw0"]
+[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="1_42nab"]
+[ext_resource type="Texture2D" uid="uid://dtyc5wpteagms" path="res://Assets/tileset.png" id="2_577y1"]
+[ext_resource type="Script" path="res://Scripts/posage.gd" id="3_pwwrd"]
+[ext_resource type="PackedScene" path="res://Scenes/test_connection_tuyaux.tscn" id="4_l7dxn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6licp"]
 vertices = PackedVector2Array(13, 16, -13, 16, -13, -16, 12.75, -16)
@@ -80,7 +78,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-16, 12.5, -16, -8.75, 
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwmjr"]
-texture = ExtResource("1_j5jdx")
+texture = ExtResource("2_577y1")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_6licp")
@@ -183,31 +181,30 @@ custom_data_layer_0/name = "identifiant"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_mwmjr")
 
-[sub_resource type="Theme" id="Theme_i1bq0"]
+[sub_resource type="Theme" id="Theme_o4jfb"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_obxt8")
 metadata/arrive = Vector2i(0, 0)
 
-[node name="Background" parent="." instance=ExtResource("3_ggvoi")]
+[node name="Background" parent="." instance=ExtResource("1_42nab")]
 
 [node name="Posage" type="TileMapLayer" parent="."]
 position = Vector2(0, 113)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
-script = ExtResource("2_gmbo5")
+script = ExtResource("3_pwwrd")
 
 [node name="Level" type="TileMapLayer" parent="."]
 position = Vector2(0, 113)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 5, 0, 3, 0, 0, 0, 2, 0, 3, 0, 0, 0, 4, 0, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_nw4rb")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_l7dxn")]
 position = Vector2(16, 119)
 
 [node name="Organe" type="TileMapLayer" parent="."]
 position = Vector2(0, 113)
-tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 5, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 4, 0, 1, 0, 0, 0, 3, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -223,12 +220,6 @@ offset_top = 3.0
 offset_right = 132.0
 offset_bottom = 26.0
 grow_horizontal = 2
-theme = SubResource("Theme_i1bq0")
+theme = SubResource("Theme_o4jfb")
 theme_override_colors/font_color = Color(1, 0.611765, 0, 1)
 text = "Level: 0"
-
-[node name="Label2" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("6_aorw0")
-text = "FAIL..."
