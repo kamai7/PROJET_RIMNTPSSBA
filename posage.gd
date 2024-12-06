@@ -53,6 +53,7 @@ func _input(event: InputEvent) -> void:
 				
 			else:
 				set_cell(mouse_in_tile,0,Vector2i(0,0))
+				#:3
 		
 		else:
 			var pipes = [Vector2i(0,0),Vector2i(0,1),Vector2i(1,0),Vector2i(2,0),Vector2i(1,1),Vector2i(2,1)]
