@@ -1,3 +1,6 @@
 res://posage.tscn
-res://posage.gd
 res://posage2.tscn
+res://Main.tscn
+res://Scenes/levels/Level1.tscn
+res://main.gd
+res://Scripts/main.gd

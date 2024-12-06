@@ -22,10 +22,13 @@ func _physics_process(delta: float) -> void:
 		match res:
 			"true":
 				check = false
+				get_tree().change_scene("res://Scenes/levels/Level1.tscn")
 				print("winner")
+				get_tree().change_scene_to_file("res://Scenes/levels/Level1.tscn")
 			"false":
 				check = false
 				print("looser")
+				get_tree().change_scene_to_file("res://Main.tscn")
 			_:
 				print("computing") 
 			
