@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://vc1l8lelphgv"]
+[gd_scene load_steps=5 format=3 uid="uid://qwb4nt7jgcxn"]
 
-[ext_resource type="Script" path="res://background.gd" id="1_78gss"]
-[ext_resource type="Texture2D" uid="uid://b25f5om5r5fql" path="res://Assets/background_tileset.png" id="2_reecg"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="1_bhfd2"]
+[ext_resource type="Texture2D" uid="uid://b63fim7ylalo6" path="res://Assets/background_tileset.png" id="2_reecg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_um5ix"]
 texture = ExtResource("2_reecg")
@@ -28,8 +28,9 @@ texture = ExtResource("2_reecg")
 sources/0 = SubResource("TileSetAtlasSource_um5ix")
 
 [node name="Background" type="Node2D"]
-script = ExtResource("1_78gss")
+script = ExtResource("1_bhfd2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(4, 4)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_li5wo")

@@ -12,6 +12,7 @@ const FIELD_RIGHT = 3
 
 
 func generate_bg(width: int, height: int):
+	print("feur")
 	for x in range(width):
 		var rand1 = randi_range(1, 3)
 		var rand2 = randi_range(1, 3)
@@ -41,6 +42,7 @@ func generate_bg(width: int, height: int):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("feuriste")
 	grid = $TileMapLayer
 	generate_bg(3, 5)
 
