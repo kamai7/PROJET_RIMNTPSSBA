@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 5000
+const SPEED = 100
 
 @onready var organe := get_tree().get_current_scene().get_node("Organe") as TileMapLayer
 @onready var pipes := get_tree().get_current_scene().get_node("Posage") as TileMapLayer
@@ -22,15 +22,13 @@ func _physics_process(delta: float) -> void:
 		match res:
 			"true":
 				check = false
-				get_tree().change_scene("res://Scenes/levels/Level1.tscn")
 				print("winner")
-				get_tree().change_scene_to_file("res://Scenes/levels/Level1.tscn")
 			"false":
 				check = false
 				print("looser")
-				get_tree().change_scene_to_file("res://Main.tscn")
 			_:
-				print("computing") 
+				pass
+				#print("computing") 
 			
 func check_path(delta) -> String:
 	
@@ -39,13 +37,15 @@ func check_path(delta) -> String:
 	
 	var dir = to_local($NavigationAgent2D.get_next_path_position()).normalized()
 	velocity = dir * SPEED * delta
-	move_and_slide()
+	#move_and_slide()
+	position += velocity
 	
 	var organ_name = get_tile(organe)
 	var pipe_name = get_tile(pipes)
 	var level_name = get_tile(level)
 	#print("name: ", name, "checkpoint: ", checkpoint_names[checkpoint])
 	
+	print(organ_name)
 	if organ_name == checkpoint_names[checkpoint]:
 		checkpoint += 1
 		
@@ -54,8 +54,7 @@ func check_path(delta) -> String:
 		color_check = false
 	if (pipe_name == "red" or level_name == "red") and checkpoint == 0:
 		color_check = false
-	
-	print(checkpoint_names[checkpoint])
+
 	if not color_check:
 		return "false"
 	if not $NavigationAgent2D.is_navigation_finished():
@@ -76,12 +75,13 @@ func check_connection() -> bool:
 
 func get_tile(tilemap: TileMapLayer) -> String:
 	
-	var pos = tilemap.map_to_local(to_local(position))
+	var pos = tilemap.local_to_map(position)
 	var tile = tilemap.get_cell_tile_data(pos)
 	
 	
 	var data = ""
 	if tile != null:
 		data = tile.get_custom_data("identifiant")
+		print(data)
 		
 	return data

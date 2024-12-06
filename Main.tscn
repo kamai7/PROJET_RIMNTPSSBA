@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dtyc5wpteagms" path="res://Assets/tileset.png" id="1_j5jdx"]
 [ext_resource type="Script" path="res://main.gd" id="1_obxt8"]
 [ext_resource type="Script" path="res://Scripts/posage.gd" id="2_gmbo5"]
-[ext_resource type="PackedScene" path="res://Scenes/background.tscn" id="3_ggvoi"]
-[ext_resource type="PackedScene" path="res://Scenes/test_connection_tuyaux.tscn" id="4_nw4rb"]
+[ext_resource type="PackedScene" uid="uid://qwb4nt7jgcxn" path="res://Scenes/background.tscn" id="3_ggvoi"]
+[ext_resource type="PackedScene" uid="uid://dp75pstrg1bi8" path="res://Scenes/test_connection_tuyaux.tscn" id="4_nw4rb"]
 [ext_resource type="FontFile" uid="uid://b473honksrskw" path="res://DancingScript-VariableFont_wght.ttf" id="6_aorw0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6licp"]
@@ -190,28 +190,26 @@ script = ExtResource("1_obxt8")
 metadata/arrive = Vector2i(0, 0)
 
 [node name="Background" parent="." instance=ExtResource("3_ggvoi")]
+position = Vector2(0, -113)
 
 [node name="Posage" type="TileMapLayer" parent="."]
-position = Vector2(0, 113)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 script = ExtResource("2_gmbo5")
 
 [node name="Level" type="TileMapLayer" parent="."]
-position = Vector2(0, 113)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_nw4rb")]
-position = Vector2(16, 119)
+position = Vector2(16, 6)
 
 [node name="Organe" type="TileMapLayer" parent="."]
-position = Vector2(0, 113)
 tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(98, 177)
+position = Vector2(98, 64)
 zoom = Vector2(2, 2)
 
 [node name="Label" type="Label" parent="."]
@@ -219,16 +217,17 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 74.0
-offset_top = 3.0
+offset_top = -110.0
 offset_right = 132.0
-offset_bottom = 26.0
+offset_bottom = -87.0
 grow_horizontal = 2
 theme = SubResource("Theme_i1bq0")
 theme_override_colors/font_color = Color(1, 0.611765, 0, 1)
 text = "Level: 0"
 
 [node name="Label2" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = -113.0
+offset_right = 44.0
+offset_bottom = -90.0
 theme_override_fonts/font = ExtResource("6_aorw0")
 text = "FAIL..."
