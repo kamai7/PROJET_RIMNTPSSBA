@@ -61,14 +61,14 @@ func check_path(delta) -> String:
 		
 func check_connection() -> bool:
 	
-	$NavigationAgent2D.target_position = Vector2i(3*32,0)
+	$NavigationAgent2D.target_position = Vector2i(4*32,0)
 	var res = $NavigationAgent2D.is_target_reachable()
 	
 	return res
 
 func get_tile(tilemap: TileMapLayer) -> String:
 	
-	var pos = Vector2i(int(position.x / 32), int(position.y / 32))
+	var pos = tilemap.map_to_local(position)
 	var tile = tilemap.get_cell_tile_data(pos)
 	
 	var data = ""

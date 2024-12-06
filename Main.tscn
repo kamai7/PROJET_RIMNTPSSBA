@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://d316wtimotvrq"]
 
-[ext_resource type="Texture2D" uid="uid://ccy33x2l0rlm0" path="res://Assets/tileset.png" id="1_j5jdx"]
+[ext_resource type="Texture2D" uid="uid://dtyc5wpteagms" path="res://Assets/tileset.png" id="1_j5jdx"]
 [ext_resource type="Script" path="res://Scripts/posage.gd" id="2_gmbo5"]
 [ext_resource type="PackedScene" uid="uid://qwb4nt7jgcxn" path="res://Scenes/background.tscn" id="3_ggvoi"]
 [ext_resource type="PackedScene" uid="uid://dp75pstrg1bi8" path="res://Scenes/test_connection_tuyaux.tscn" id="4_nw4rb"]
@@ -94,6 +94,7 @@ texture_region_size = Vector2i(32, 32)
 4:0/0 = 0
 4:0/0/custom_data_0 = "poumons"
 5:0/0 = 0
+5:0/0/custom_data_0 = "bloque"
 6:0/0 = 0
 7:0/0 = 0
 8:0/0 = 0
@@ -181,19 +182,20 @@ custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_mwmjr")
 
 [node name="Main" type="Node2D"]
+metadata/arrive = Vector2i(0, 0)
 
 [node name="Background" parent="." instance=ExtResource("3_ggvoi")]
 
-[node name="Level" type="TileMapLayer" parent="."]
-position = Vector2(0, 113)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 4, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0)
-tile_set = SubResource("TileSet_bkig4")
-
 [node name="Posage" type="TileMapLayer" parent="."]
 position = Vector2(0, 113)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 3, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 script = ExtResource("2_gmbo5")
+
+[node name="Level" type="TileMapLayer" parent="."]
+position = Vector2(0, 113)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+tile_set = SubResource("TileSet_bkig4")
 
 [node name="Organe" type="TileMapLayer" parent="."]
 position = Vector2(0, 113)
@@ -201,7 +203,7 @@ tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 
 tile_set = SubResource("TileSet_bkig4")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_nw4rb")]
-position = Vector2(24, 0)
+position = Vector2(16, 119)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(98, 177)

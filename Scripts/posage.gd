@@ -23,8 +23,15 @@ func _input(event: InputEvent) -> void:
 		if red:
 			mod = mod_red
 		
-		if get_cell_source_id(mouse_in_tile) != 0:
-			if get_cell_source_id(mouse_in_tile - Vector2i(0,1)) == 0:
+		var try = false
+		if get_cell_tile_data(mouse_in_tile) != null:
+			try = true
+			
+		if try and get_cell_tile_data(mouse_in_tile).get_custom_data("identifiant") == "bloque":
+			pass
+		elif get_cell_source_id(mouse_in_tile) != 0:
+			
+			if get_cell_source_id(mouse_in_tile - Vector2i(0,1)) == 0 and (not try or get_cell_tile_data(mouse_in_tile - Vector2i(0,1)).get_custom_data("identifiant") != "bloque"):
 				set_cell(mouse_in_tile,0,Vector2i(0,0) + mod)
 				if get_cell_source_id(mouse_in_tile - Vector2i(1,1)) == 0:
 					set_cell(mouse_in_tile - Vector2i(0,1),0,Vector2i(2,0) + mod)
@@ -33,7 +40,7 @@ func _input(event: InputEvent) -> void:
 				elif get_cell_source_id(mouse_in_tile - Vector2i(0,2)) == 0:
 					set_cell(mouse_in_tile - Vector2i(0,1),0,Vector2i(0,0) + mod)
 					
-			elif get_cell_source_id(mouse_in_tile - Vector2i(0,-1)) == 0:
+			elif get_cell_source_id(mouse_in_tile - Vector2i(0,-1)) == 0 and (not try or get_cell_tile_data(mouse_in_tile - Vector2i(0,-1)).get_custom_data("identifiant") != "bloque"):
 				set_cell(mouse_in_tile,0,Vector2i(0,0) + mod)
 				if get_cell_source_id(mouse_in_tile - Vector2i(1,-1)) == 0:
 					set_cell(mouse_in_tile - Vector2i(0,-1),0,Vector2i(2,1) + mod)
@@ -42,7 +49,7 @@ func _input(event: InputEvent) -> void:
 				elif get_cell_source_id(mouse_in_tile - Vector2i(0,-2)) == 0:
 					set_cell(mouse_in_tile - Vector2i(0,-1),0,Vector2i(0,0) + mod)
 				
-			elif get_cell_source_id(mouse_in_tile - Vector2i(1,0)) == 0:
+			elif get_cell_source_id(mouse_in_tile - Vector2i(1,0)) == 0 and (not try or get_cell_tile_data(mouse_in_tile - Vector2i(1,0)).get_custom_data("identifiant") != "bloque"):
 				set_cell(mouse_in_tile,0,Vector2i(0,1) + mod)
 				if get_cell_source_id(mouse_in_tile - Vector2i(1,1)) == 0:
 					set_cell(mouse_in_tile - Vector2i(1,0),0,Vector2i(1,1) + mod)
@@ -52,7 +59,7 @@ func _input(event: InputEvent) -> void:
 					set_cell(mouse_in_tile - Vector2i(1,0),0,Vector2i(0,1) + mod)
 				
 				
-			elif get_cell_source_id(mouse_in_tile - Vector2i(-1,0)) == 0:
+			elif get_cell_source_id(mouse_in_tile - Vector2i(-1,0)) == 0 and (not try or get_cell_tile_data(mouse_in_tile - Vector2i(-1,0)).get_custom_data("identifiant") != "bloque"):
 				set_cell(mouse_in_tile,0,Vector2i(0,1)  + mod)
 				if get_cell_source_id(mouse_in_tile - Vector2i(-1,1)) == 0:
 					set_cell(mouse_in_tile - Vector2i(-1,0),0,Vector2i(2,1) + mod)
