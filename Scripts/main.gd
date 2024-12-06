@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-const SPEED = 5000
+const SPEED = 10000
 
 @onready var organe := get_tree().get_current_scene().get_node("Organe") as TileMapLayer
+@onready var pipes := get_tree().get_current_scene().get_node("Posage") as TileMapLayer
+@onready var level := get_tree().get_current_scene().get_node("Level") as TileMapLayer
 
 var check = false
 var checkpoint = 0
@@ -35,12 +37,21 @@ func check_path(delta) -> String:
 	move_and_slide()
 	
 	var organ_name = get_tile(organe)
+	var pipe_name = get_tile(pipes)
+	var level_name = get_tile(level)
 	#print("name: ", name, "checkpoint: ", checkpoint_names[checkpoint])
 	
 	if organ_name == checkpoint_names[checkpoint]:
 		checkpoint += 1
+		
+	var color_check = true
+	if (pipe_name == "bleu" or level_name == "bleu") and checkpoint > 0:
+		color_check = false
+	if (pipe_name == "red" or level_name == "red") and checkpoint == 0:
+		color_check = false
 	
-	
+	if not color_check:
+		return "false"
 	if not $NavigationAgent2D.is_navigation_finished():
 		return "computing"
 	if is_connected and checkpoint == 3:
