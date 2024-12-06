@@ -25,6 +25,9 @@ func _physics_process(delta: float) -> void:
 				print("winner")
 			"false":
 				check = false
+				$fail.show()
+				await get_tree().create_timer(2.0).timeout
+				get_tree().change_scene_to_file("res://Main.tscn")
 				print("looser")
 			_:
 				pass
