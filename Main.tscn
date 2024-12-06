@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccy33x2l0rlm0" path="res://Assets/tileset.png" id="1_j5jdx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55ocw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwmjr"]
 texture = ExtResource("1_j5jdx")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -72,7 +72,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_bkig4"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_55ocw")
+sources/0 = SubResource("TileSetAtlasSource_mwmjr")
 
 [node name="Main" type="Node2D"]
 
