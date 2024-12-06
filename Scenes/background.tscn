@@ -31,5 +31,5 @@ sources/0 = SubResource("TileSetAtlasSource_um5ix")
 script = ExtResource("1_bhfd2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_li5wo")

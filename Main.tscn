@@ -190,23 +190,23 @@ script = ExtResource("1_obxt8")
 metadata/arrive = Vector2i(0, 0)
 
 [node name="Background" parent="." instance=ExtResource("3_ggvoi")]
-position = Vector2(0, -113)
+position = Vector2(0, -80)
 
 [node name="Posage" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 script = ExtResource("2_gmbo5")
 
 [node name="Level" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 1, 0, 3, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 5, 0, 0, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0)
+tile_set = SubResource("TileSet_bkig4")
+
+[node name="Organe" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, 1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_bkig4")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_nw4rb")]
 position = Vector2(16, 6)
-
-[node name="Organe" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 1, 0, 0, 0, 3, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_bkig4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(98, 64)
@@ -224,6 +224,42 @@ grow_horizontal = 2
 theme = SubResource("Theme_i1bq0")
 theme_override_colors/font_color = Color(1, 0.611765, 0, 1)
 text = "Level: 0"
+
+[node name="Label3" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 6.0
+offset_top = 134.0
+offset_right = 236.0
+offset_bottom = 235.0
+grow_horizontal = 2
+theme = SubResource("Theme_i1bq0")
+theme_override_colors/font_color = Color(1, 0.611765, 0, 1)
+text = "left arrow :  change pipe color
+enter : validate level
+right click : set / edit pipe
+left click : remove pipe"
+
+[node name="Label4" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = -44.0
+offset_right = -9.0
+offset_bottom = 161.0
+grow_horizontal = 2
+theme = SubResource("Theme_i1bq0")
+theme_override_colors/font_color = Color(1, 0.611765, 0, 1)
+text = "The goal is to link the
+organ by this  order :
+ocean -> lungs -> hearth
+-> brain ->  ocean
+
+The pipe must be blue 
+before the lung and be 
+red after the lung"
 
 [node name="Label2" type="Label" parent="."]
 offset_top = -113.0

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100
+const SPEED = 1000
 
 @onready var organe := get_tree().get_current_scene().get_node("Organe") as TileMapLayer
 @onready var pipes := get_tree().get_current_scene().get_node("Posage") as TileMapLayer
@@ -8,28 +8,12 @@ const SPEED = 100
 
 @onready var start_pos = position
 
+@export var res = false
+
 var check = false
 var checkpoint = 0
 var checkpoint_names = ["poumons", "coeur", "cerveau","end"]
 
-func _physics_process(delta: float) -> void:
-	
-	if (Input.is_action_just_pressed("ui_down")):
-		check = true
-	
-	if check:
-		var res = check_path(delta)
-		match res:
-			"true":
-				check = false
-				print("winner")
-			"false":
-				check = false
-				print("looser")
-			_:
-				pass
-				#print("computing") 
-			
 func check_path(delta) -> String:
 	
 	var is_connected = check_connection()
@@ -45,7 +29,6 @@ func check_path(delta) -> String:
 	var level_name = get_tile(level)
 	#print("name: ", name, "checkpoint: ", checkpoint_names[checkpoint])
 	
-	print(organ_name)
 	if organ_name == checkpoint_names[checkpoint]:
 		checkpoint += 1
 		
@@ -78,10 +61,8 @@ func get_tile(tilemap: TileMapLayer) -> String:
 	var pos = tilemap.local_to_map(position)
 	var tile = tilemap.get_cell_tile_data(pos)
 	
-	
 	var data = ""
 	if tile != null:
 		data = tile.get_custom_data("identifiant")
-		print(data)
 		
 	return data
